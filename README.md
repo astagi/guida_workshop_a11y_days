@@ -26,19 +26,70 @@ Ansa.getNews('Toscana').then((res) => {
 })
 ```
 
+⚠️ Per semplicità e tempistiche consiglio di utilizzare solo alcuni valori come `Toscana`, `Politica`, `Sport`.
+
 Nella variabile `res.items` troverete un array di notizie che potete far visualizzare in pagina. Ogni elemento contiene tutte le informazioni della notizia, ad esempio
 
 ```json
+{
+    "id": "cronaca_0",
+    "title": "Multa a pensionato che ripara buca, eurodeputato paga la multa",
+    "description": "Ciocca, cittadino con senso civico va ringraziato",
+    "link": "https://www.ansa.it/sito/notizie/cronaca/2023/05/16/multa-a-pensionato-che-ripara-buca-eurodeputato-paga-la-multa_df716d81-08d4-4936-8002-4b0177cf62a4.html",
+    "published": 1684261979000,
+    "created": 1684261979000,
+    "media": "https://www.ansa.it/webimages/img_457x/2020/2/22/c9093ff69955180f720e3b5fbd1ab6a8.jpg",
+    "text": "Il testo della notizia",
+    "daypublished": "16",
+    "monthpublished": "maggio"
+},
+```
+
+## Componenti che necessitano di attenzione
+
+- L'autocomplete contenente il campo di ricerca per categoria o regione delle notizie deve necessariamente stare dentro un form 
+
+```html
+<form id="searchForm" action="index.html" method="post">
+    <div class="select-wrapper">
+        <label for="accessibleAutocomplete">Cerca le news per categoria o perregione.</label>
+        <select class="form-control" id="accessibleAutocomplete" title="Scegli una provincia" required>
+            <option value='Toscana'>Toscana</option>
+            <option value='Politica'>Politica</option>
+            <option value='Sport'>Sport</option>
+        </select>
+    </div>
+    <button class="btn btn-primary mt-3" type="submit" data-focus-mouse="false">
+        Cerca le notizie
+    </button>
+</form>
+```
+
+e deve essere inizializzato tramite JavaScript insieme alla validazione. Si rimanda alla [documentazione dell'Autocomplete](https://italia.github.io/bootstrap-italia/docs/form/autocompletamento/).
+
+```js 
+// Inizializza il motore di validazione del form
+const validate = new bootstrap.FormValidate('#searchForm', {
+    errorFieldCssClass: 'is-invalid',
+    errorLabelCssClass: 'form-feedback',
+    errorLabelStyle: '',
+    focusInvalidField: false,
+})
+// Imposta il comportamento della validazione
+validate
+    .addField('#accessibleAutocomplete', [
         {
-            "id": "cronaca_0",
-            "title": "Multa a pensionato che ripara buca, eurodeputato paga la multa",
-            "description": "Ciocca, cittadino con senso civico va ringraziato",
-            "link": "https://www.ansa.it/sito/notizie/cronaca/2023/05/16/multa-a-pensionato-che-ripara-buca-eurodeputato-paga-la-multa_df716d81-08d4-4936-8002-4b0177cf62a4.html",
-            "published": 1684261979000,
-            "created": 1684261979000,
-            "media": "https://www.ansa.it/webimages/img_457x/2020/2/22/c9093ff69955180f720e3b5fbd1ab6a8.jpg",
-            "text": "\n\t\t\t\t\t\t\t\t\t\t\n\n            \n            (ANSA) - MILANO, 16 MAG - L'europarlamentare pavese della\nLega, Angelo Ciocca, si è impegnato a pagare la multa di oltre\n800 euro a Claudio Trenta, il pensionato che ha riparato una\nbuca a Barlassina (Monza) ed è stato sanzionato dal Comune.   \n\t\t\t\tNotizia diventata virale nei giorni scorsi. Lo ha promessa in\nun'intervista nella  trasmissione \"Lombardia nera\", in onda\nquesta sera a partire dalle 20.30 su Antenna.   \n\t\t\t\t   \"Io penso che un cittadino che con senso civico ha segnalato\nun problema e poi, preso probabilmente dalla disperazione, ha\ndeciso di chiuderla vada ringraziato - ha affermato il politico\n-  Visto che noi abbiamo una indennità importante come\nparlamentari europei io mi sento in dovere di pagare la multa a\nquesto signore. Mi impegno a farlo, perché a me sembra una cosa\ningiusta lasciare la multa sulle spalle di un pensionato che\ncompie un'opera di bene. Per me il signor Trenta ha fatto\nun'opera di buon senso, ovvero agire davanti al pericolo.   \n\t\t\t\tSiccome per la sua famiglia e sua moglie questa multa è un\npensiero non posso far altro, per ringraziarlo di quello che ha\nfatto - di togliergli il pensiero di una multa ingiusta. Al\nmassimo avrebbero dovuto mandargli una diffida\".   \n\t\t\t\t   \"La prima regola - concluso Ciocca - è garantire la sicurezza\nsulle strade, il sindaco avrebbe dovuto preoccuparsi della buca\nche gli è stata segnalata più volte. Se in quella buca cadeva un\nbambino, un ciclista, un motociclista o un anziano oggi\nprobabilmente il sindaco avrebbe problemi più seri che\nrincorrere chi ha chiuso la buca. A me sembra una barzelletta di\nPierino\". (ANSA).   \n\t\t\t\t          \n\n\n\t\t\t\t\t\t\t\t\t",
-            "daypublished": "16",
-            "monthpublished": "maggio"
+            rule: 'required',
+            errorMessage: 'Questo campo è richiesto',
         },
+        {
+            errorMessage: "Seleziona un'opzione fra quelle disponibili",
+            validator: bootstrap.ValidatorSelectAutocomplete('#accessibleAutocomplete'),
+        },
+    ])
+    .onSuccess((event) => {
+        const e = selectAutocomplete._element;
+        const value = e.options[e.selectedIndex].value;
+        // Da qui il value può essere utilizzato per prendere le notizie con la libreria Ansa.js
+    })
 ```
