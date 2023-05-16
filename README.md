@@ -10,11 +10,11 @@ Costruire una single page application (SPA) con l'utilizzo di [Bootstrap Italia]
 
 - Bootstrap Italia
 
-🔧 Potete installare l'applicazione direttamente includendo stili e script JavaScript all'interno della vostra pagina web
+🔧 Potete installare la libreria includendo stili e script JavaScript all'interno della vostra pagina web
 
 - Ansa.js
 
-🔧 Potete installare l'applicazione direttamente includendo lo script JavaScript all'interno della vostra pagina web
+🔧 Potete installare la libreria includendo lo script JavaScript all'interno della vostra pagina web
 
 ```html
 <script src="https://unpkg.com/ansa@0.0.1/bundle.js"></script>
@@ -28,7 +28,7 @@ Ansa.getNews('Toscana').then((res) => {
 })
 ```
 
-⚠️ Per semplicità e tempistiche consiglio di utilizzare solo alcuni valori come `Toscana`, `Politica`, `Sport`.
+⚠️ Per semplicità e tempistiche consiglio di utilizzare solo alcuni valori come `Lazio`, `Politica`, `Sport`.
 
 Nella variabile `res.items` troverete un array di notizie che potete far visualizzare in pagina. Ogni elemento contiene tutte le informazioni della notizia, ad esempio
 
@@ -45,6 +45,42 @@ Nella variabile `res.items` troverete un array di notizie che potete far visuali
     "daypublished": "16",
     "monthpublished": "maggio"
 },
+```
+
+- (Facoltativo) Una libreria semplice di rendering template (come Mustache)
+
+⚠️ Una libreria di rendering template può essere utile per renderizzare una serie di elementi che arrivano in asincrono dal una richiesta HTTP e che non sono decisi a priori, come in questo caso le notizie. Una libreria molto interessante e adatta a questo scopop può essere Mustache.js ma potete anche agire senza di essa utilizzando JavaScript e `innerHTML`.
+
+🔧 Potete installare Mustache.js includendo lo script JavaScript all'interno della vostra pagina web
+
+```html
+<script src="https://unpkg.com/mustache@latest"></script>
+```
+
+👉🏻 Per utilizzare Mustache dovete definire un template nella pagina web
+
+```html
+<script id="templateCardsNews" type="x-tmpl-mustache">
+    {{#news}}
+    <div>
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+    </div>
+    {{/news}}
+</script>
+```
+
+per poi utilizzarlo quando i dati sono 
+
+```js
+Ansa.getNews(value).then((res) => {
+    // Prendi il template definito sopra
+    const template = document.getElementById('templateCardsNews').innerHTML;
+    // Renderizzalo (in questo caso passandogli le news
+    const rendered = Mustache.render(template, { news: res.items });
+    // Prendi l'elemento e inseriscici il template renderizzato
+    document.getElementById('newsList').innerHTML = rendered;
+})
 ```
 
 ## Componenti che necessitano di attenzione
