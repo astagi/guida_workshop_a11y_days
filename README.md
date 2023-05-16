@@ -4,6 +4,8 @@
 
 Costruire una single page application (SPA) con l'utilizzo di [Bootstrap Italia](https://italia.github.io/bootstrap-italia/) che abbia lo scopo di visualizzare tutte le notizie prese dal sito [Ansa.it](https://ansa.it) di una determinata categoria (ad esempio politica, cultura, sport..) o di una determinata regione italiana (Abruzzo, Toscana, Lombardia, Sicilia...).
 
+<img width="1369" alt="image" src="https://github.com/astagi/guida_workshop_a11y_days/assets/537363/e784b46c-0ddb-4c2e-a544-97072b0f6c17">
+
 ## Librerie da utilizzare
 
 - Bootstrap Italia
@@ -93,3 +95,9 @@ validate
         // Da qui il value può essere utilizzato per prendere le notizie con la libreria Ansa.js
     })
 ```
+
+- Per visualizzare le notizie potete utilizzare una lista di card con immagine. Per capire come inizializzare le card si rimanda alla [documentazione delle card con immagine](https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-con-immagine)
+
+<img width="460" alt="image" src="https://github.com/astagi/guida_workshop_a11y_days/assets/537363/01ff5bd5-37e3-455d-9d47-c46fb016cd3a">
+
+Nell'esempio sopra è stato inserito anche un Accordion (documentazione [qui](https://italia.github.io/bootstrap-italia/docs/componenti/accordion/)) per far apparire/scomparire il testo della notizia a discrezione dell'utente.
