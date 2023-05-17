@@ -19,7 +19,7 @@ Costruire una single page application (SPA) con l'utilizzo di [Bootstrap Italia]
 <script src="https://unpkg.com/bootstrap-italia@2.4.2/dist/js/bootstrap-italia.bundle.min.js"></script>
 ```
 
-⚠️ A causa di problemi con CORS è necessario scaricare in locale il file [sprites.svg da unpkg.com](https://unpkg.com/browse/bootstrap-italia@2.4.2/dist/svg/).
+⚠️ A causa di problemi con CORS per utilizzare le SVG è necessario scaricare in locale il file [sprites.svg da unpkg.com](https://unpkg.com/browse/bootstrap-italia@2.4.2/dist/svg/sprites.svg).
 
 - [Ansa.js](https://github.com/astagi/ansa.js)
 
