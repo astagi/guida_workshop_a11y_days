@@ -1,4 +1,11 @@
-# Guida workshop per gli Accessibility Days 19/05/2023 a Roma
+# Guida workshop Accessibility Days 2023 (19/05/2023, Roma)
+
+## Contenuti
+
+- [Obiettivo principale](#obiettivo-principale)
+- [Ambiente di sviluppo](#ambiente-di-sviluppo)
+- [Librerie da utilizzare](#librerie-da-utilizzare)
+- [Componenti che necessitano di attenzione](#componenti-che-necessitano-di-attenzione)
 
 ## Obiettivo principale
 
@@ -8,7 +15,21 @@ Costruire una single page application (SPA) con l'utilizzo di [Bootstrap Italia]
 
 ### Form di ricerca
 
+Il form di ricerca si compone di un componente Autocomplete (si rimanda alla [documentazione dell'Autocomplete](https://italia.github.io/bootstrap-italia/docs/form/autocompletamento/)) e di un pulsante submit (si rimanda alla [documentazione dei bottoni](https://italia.github.io/bootstrap-italia/docs/componenti/buttons/)).
 
+<img width="733" alt="image" src="https://github.com/astagi/guida_workshop_a11y_days/assets/537363/2f407f34-e136-47a1-a079-a36aee30f72f">
+
+<img width="733" alt="image" src="https://github.com/astagi/guida_workshop_a11y_days/assets/537363/35da1330-3090-4501-9ce1-d060ee0f0319">
+
+### Lista di notizie
+
+Le notizie sono incorporate in un componente Card con immagine (si rimanda alla [documentazione delle card con immagine](https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-con-immagine))
+
+<img width="484" alt="image" src="https://github.com/astagi/guida_workshop_a11y_days/assets/537363/f03277e4-a19b-4753-a4f6-d7556271dcb6">
+
+Nel dettaglio della notizia potete trovare qui un Accordion (si rimanda alla [documentazione del componente Accordion](https://italia.github.io/bootstrap-italia/docs/componenti/accordion/)) per mostrare/nascondere il testo a discrezione dell'utente.
+
+<img width="484" alt="image" src="https://github.com/astagi/guida_workshop_a11y_days/assets/537363/910ce674-72ba-4aaa-a878-46a3f3778e57">
 
 ## Ambiente di sviluppo
 
