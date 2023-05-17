@@ -8,11 +8,11 @@ Costruire una single page application (SPA) con l'utilizzo di [Bootstrap Italia]
 
 ## Librerie da utilizzare
 
-- Bootstrap Italia
+- [Bootstrap Italia](https://github.com/italia/bootstrap-italia)
 
 🔧 Potete installare la libreria includendo stili e script JavaScript all'interno della vostra pagina web
 
-- Ansa.js
+- [Ansa.js](https://github.com/astagi/ansa.js)
 
 🔧 Potete installare la libreria includendo lo script JavaScript all'interno della vostra pagina web
 
@@ -47,7 +47,7 @@ Nella variabile `res.items` troverete un array di notizie che potete far visuali
 },
 ```
 
-- (Facoltativo) Una libreria semplice di rendering template (come Mustache)
+- (Facoltativo) Una libreria semplice di rendering template (come [Mustache](https://github.com/janl/mustache.js/))
 
 ⚠️ Una libreria di rendering template può essere utile per renderizzare una serie di elementi che arrivano in asincrono dal una richiesta HTTP e che non sono decisi a priori, come in questo caso le notizie. Una libreria molto interessante e adatta a questo scopop può essere Mustache.js ma potete anche agire senza di essa utilizzando JavaScript e `innerHTML`.
 
