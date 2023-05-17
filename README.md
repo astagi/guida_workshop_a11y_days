@@ -6,6 +6,14 @@ Costruire una single page application (SPA) con l'utilizzo di [Bootstrap Italia]
 
 <img width="1369" alt="image" src="https://github.com/astagi/guida_workshop_a11y_days/assets/537363/e784b46c-0ddb-4c2e-a544-97072b0f6c17">
 
+### Form di ricerca
+
+
+
+## Ambiente di sviluppo
+
+Scegliete l'editor che preferite per sviluppare il progetto, potete utilizzare `npm` per installare le dipendenze oppure creare una singola pagina `index.html` da aprire nel browser o con un server di sviluppo (ad esempio [http-server](https://www.npmjs.com/package/http-server)).
+
 ## Librerie da utilizzare
 
 ### [Bootstrap Italia](https://github.com/italia/bootstrap-italia)
