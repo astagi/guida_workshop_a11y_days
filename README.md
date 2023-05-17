@@ -12,6 +12,15 @@ Costruire una single page application (SPA) con l'utilizzo di [Bootstrap Italia]
 
 🔧 Potete installare la libreria includendo stili e script JavaScript all'interno della vostra pagina web
 
+```html
+<link href="https://unpkg.com/bootstrap-italia@2.4.2/dist/css/bootstrap-italia.min.css" rel="stylesheet">
+
+
+<script src="https://unpkg.com/bootstrap-italia@2.4.2/dist/js/bootstrap-italia.bundle.min.js"></script>
+```
+
+⚠️ A causa di problemi con CORS è necessario scaricare in locale il file [sprites.svg da unpkg.com](https://unpkg.com/browse/bootstrap-italia@2.4.2/dist/svg/).
+
 - [Ansa.js](https://github.com/astagi/ansa.js)
 
 🔧 Potete installare la libreria includendo lo script JavaScript all'interno della vostra pagina web
@@ -28,7 +37,7 @@ Ansa.getNews('Toscana').then((res) => {
 })
 ```
 
-⚠️ Per semplicità e tempistiche consiglio di utilizzare solo alcuni valori come `Lazio`, `Politica`, `Sport`.
+⚠️ Per via delle tempistiche strette consiglio di utilizzare solo alcuni valori come `Lazio`, `Politica`, `Sport`.
 
 Nella variabile `res.items` troverete un array di notizie che potete far visualizzare in pagina. Ogni elemento contiene tutte le informazioni della notizia, ad esempio
 
