@@ -2,6 +2,7 @@
 
 ## Link utili
 
+- [Presentazione Accessibility Days 2023](https://docs.google.com/presentation/d/1DKaUtZu5JeUT1zgxf5u3SGZaW4l78v9_eHa0FNFiq8c/edit?usp=sharing)
 - [Demo finale su Vercel](https://demo-a11y-days.vercel.app/)
 - [Codice demo finale](https://github.com/astagi/demo_a11y_days)
 
