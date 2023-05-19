@@ -3,6 +3,7 @@
 ## Link utili
 
 - [Presentazione Accessibility Days 2023](https://docs.google.com/presentation/d/1DKaUtZu5JeUT1zgxf5u3SGZaW4l78v9_eHa0FNFiq8c/edit?usp=sharing)
+- [Fondamenti di accessibilità (sito Designers)](https://designers.italia.it/design-system/fondamenti/accessibilita/)
 - [Demo finale su Vercel](https://demo-a11y-days.vercel.app/)
 - [Codice demo finale](https://github.com/astagi/demo_a11y_days)
 
@@ -12,7 +13,6 @@
 - [Ambiente di sviluppo](#ambiente-di-sviluppo)
 - [Librerie da utilizzare](#librerie-da-utilizzare)
 - [Componenti che necessitano di attenzione](#componenti-che-necessitano-di-attenzione)
-- [Fondamenti di accessibilità (sito Designers)](https://designers.italia.it/design-system/fondamenti/accessibilita/)
 
 ## Obiettivo principale
 
@@ -130,7 +130,7 @@ Ansa.getNews(value).then((res) => {
 
 ## Componenti che necessitano di attenzione
 
-- L'autocomplete contenente il campo di ricerca per categoria o regione delle notizie deve necessariamente stare dentro un form 
+- L'autocomplete in questo caso deve fungere da campo di ricerca delle notizie per categoria/regione e deve necessariamente stare dentro un form 
 
 ```html
 <form id="searchForm" action="index.html" method="post">
@@ -148,7 +148,7 @@ Ansa.getNews(value).then((res) => {
 </form>
 ```
 
-e deve essere inizializzato tramite JavaScript insieme alla validazione. Si rimanda alla [documentazione dell'Autocomplete](https://italia.github.io/bootstrap-italia/docs/form/autocompletamento/).
+- L'autocomplete è uno di quei componenti come [Tooltip](https://italia.github.io/bootstrap-italia/docs/componenti/tooltip/#abilitazione-di-tooltip) che deve essere inizializzato tramite JavaScript. In questo caso, una volta istanziato il componente, è necessario attivare la validazione. Si rimanda alla [documentazione dell'Autocomplete](https://italia.github.io/bootstrap-italia/docs/form/autocompletamento/).
 
 ```js 
 // Inizializza il motore di validazione del form
@@ -161,10 +161,12 @@ const validate = new bootstrap.FormValidate('#searchForm', {
 // Imposta il comportamento della validazione
 validate
     .addField('#accessibleAutocomplete', [
+        // Impone che il campo sia valorizzato.
         {
             rule: 'required',
             errorMessage: 'Questo campo è richiesto',
         },
+        // Impone che il campo contenga una delle <option> dichiarate.
         {
             errorMessage: "Seleziona un'opzione fra quelle disponibili",
             validator: bootstrap.ValidatorSelectAutocomplete('#accessibleAutocomplete'),
