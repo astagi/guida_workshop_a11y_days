@@ -6,6 +6,7 @@
 - [Ambiente di sviluppo](#ambiente-di-sviluppo)
 - [Librerie da utilizzare](#librerie-da-utilizzare)
 - [Componenti che necessitano di attenzione](#componenti-che-necessitano-di-attenzione)
+- [Fondamenti di accessibilità](https://designers.italia.it/design-system/fondamenti/accessibilita/)
 
 ## Obiettivo principale
 
